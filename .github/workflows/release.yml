@@ -26,4 +26,4 @@ jobs:
         goarch: ${{ matrix.goarch }}
         goversion: "1.18"
         binary_name: "gocred"
-        extra_files: LICENSE # README.md
+        extra_files: LICENSE README.md
