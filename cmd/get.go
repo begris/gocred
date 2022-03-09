@@ -19,9 +19,9 @@ var usernameFlag, secretFlag bool
 
 var getCmd = &cobra.Command{
 	Use:   "get",
-	Short: "Gets a credential from Windows Credential Manager",
+	Short: "Gets a credential from operating system credential manager",
 	Long: `Gets a credential GOCRED\<credential name> from 
-the Windows Credential Manger, MacOs keychain or Linux GNOME keyring.`,
+the Windows Credential Manger, MacOS Keychain or Linux GNOME Keyring.`,
 	PreRun: func(cmd *cobra.Command, args []string) {
 		if CredentialName == "" {
 			fmt.Println("Credential name is mandatory.")
@@ -30,8 +30,7 @@ the Windows Credential Manger, MacOs keychain or Linux GNOME keyring.`,
 	},
 	Run: func(cmd *cobra.Command, args []string) {
 		var username string
-
-		//credential, err := wincred.GetGenericCredential(CredentialName)
+		
 		secret, err := keyring.Get(CredentialPrefix, CredentialName)
 		if err != nil {
 			fmt.Println(err)

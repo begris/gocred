@@ -16,9 +16,9 @@ const encodingMagic string = "(b64)"
 
 var rootCmd = &cobra.Command{
 	Use:   "gocred",
-	Short: "Stores and retrieves credentials from Windows Credential Manager",
+	Short: "Stores and retrieves credentials from operating system credential manager",
 	Long: `gocred is a CLI tool to store and retrieve secrets
-backed by the Windows Credential Manager, MacOs keychain or Linux GNOME keyring.
+backed by the Windows Credential Manager, MacOS Keychain or Linux GNOME Keyring.
 
 Credential names are prefixed by the string 'GOCRED\'.`,
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {

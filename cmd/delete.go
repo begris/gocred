@@ -14,9 +14,9 @@ import (
 
 var deleteCmd = &cobra.Command{
 	Use:   "delete",
-	Short: "Deletes a credential from Windows Credential Manager",
+	Short: "Deletes a credential from operating system credential manager",
 	Long: `Deletes a credential GOCRED\<credential name> from 
-the Windows Credential Manger, MacOs keychain or Linux GNOME keyring.`,
+the Windows Credential Manger, MacOS Keychain or Linux GNOME Keyring.`,
 	PreRun: func(cmd *cobra.Command, args []string) {
 		if CredentialName == "" {
 			fmt.Println("Credential name is mandatory.")
