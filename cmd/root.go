@@ -5,25 +5,24 @@ Copyright © 2022 begris - Bjoern Beier
 package cmd
 
 import (
-	"fmt"
 	"github.com/spf13/cobra"
 	"os"
 )
 
 var CredentialName string
 
-const CredentialPrefix string = "GOCRED/"
+const CredentialPrefix string = "GOCRED"
+const encodingMagic string = "(b64)"
 
 var rootCmd = &cobra.Command{
 	Use:   "gocred",
 	Short: "Stores and retrieves credentials from Windows Credential Manager",
 	Long: `gocred is a CLI tool to store and retrieve secrets
-backed by the Windows Credential Manager.
+backed by the Windows Credential Manager, MacOs keychain or Linux GNOME keyring.
 
 Credential names are prefixed by the string 'GOCRED\'.`,
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {
 		if CredentialName != "" {
-			CredentialName = fmt.Sprintf("%s%s", CredentialPrefix, CredentialName)
 		}
 	},
 }
