@@ -1,3 +1,7 @@
+/*
+Copyright © 2022 begris - Bjoern Beier
+
+*/
 package data
 
 type Credential struct {

@@ -18,9 +18,9 @@ import (
 var setCmd = &cobra.Command{
 	Use:   "set [username] secret",
 	Args:  cobra.RangeArgs(1, 2),
-	Short: "Creates or updates a credential in credential store",
+	Short: "Creates or updates a credential in operating system credential manager",
 	Long: `Creates or updates a credential GOCRED\<credential name> in 
-the Windows Credential Manger, MacOs keychain or Linux GNOME keyring.
+the Windows Credential Manger, MacOS Keychain or Linux GNOME Keyring.
 
 Credentials will be stored as generic credentials. If a username is
 given the username and secret are stored as a base64 encoded json,
