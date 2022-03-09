@@ -19,6 +19,9 @@ jobs:
             goos: windows
     steps:
     - uses: actions/checkout@v2
+    - name: Set APP_VERSION env
+      run: echo APP_VERSION=$(basename ${GITHUB_REF}) >> ${GITHUB_ENV}
+
     - uses: wangyoucao577/go-release-action@v1.25
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -26,4 +29,5 @@ jobs:
         goarch: ${{ matrix.goarch }}
         goversion: "1.18"
         binary_name: "gocred"
+        ldflags: -X "gocred/cmd.Version=v${{ env.APP_VERSION }}"
         extra_files: LICENSE README.md
