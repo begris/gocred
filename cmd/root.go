@@ -10,6 +10,7 @@ import (
 )
 
 var CredentialName string
+var Version string = "development"
 
 const CredentialPrefix string = "GOCRED"
 const encodingMagic string = "(b64)"
@@ -21,6 +22,7 @@ var rootCmd = &cobra.Command{
 backed by the Windows Credential Manager, MacOS Keychain or Linux GNOME Keyring.
 
 Credential names are prefixed by the string 'GOCRED\'.`,
+	Version: Version,
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {
 		if CredentialName != "" {
 		}
